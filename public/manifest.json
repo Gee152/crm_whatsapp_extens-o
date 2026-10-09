@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsCRM - WAPlus Superpoderes",
+  "version": "1.1.0",
+  "description": "Superpoderes e CRM completo para WhatsApp Web",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["https://web.whatsapp.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "WhatsCRM Superpoderes"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["crm.html", "content.css", "bridge.js", "assets/*"],
+      "matches": ["https://web.whatsapp.com/*"]
+    }
+  ]
+}
